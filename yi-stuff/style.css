@@ -1,0 +1,30 @@
+html {
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  background-color: green;
+}
+
+nav {
+  height: 6vh;
+  width: 100vw;
+}
+
+.card-container {
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+
+  background-color: pink;
+}
+
+.result-image {
+  width: 200px;
+}
