@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Card Looker Upper</title>
+    <style>
+      textarea {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Magic Card Looker Upper!</h1>
+      <h2>
+        Enter a string here and press the button. We will find cards for you
+        that contain that string.
+      </h2>
+      <textarea id="searchVal" maxlength="1000"></textarea>
+      <p>
+        *The more specific the string, the more accurate the search will be.
+      </p>
+      <button id="searchGo">Search</button>
+      <div id="searchResults"></div>
+    </main>
+    <script src="api.js"></script>
+  </body>
+</html>
