@@ -14,7 +14,7 @@ nav {
   width: 100vw;
 }
 
-.card-container {
+#card-container {
   height: 94vh;
   display: flex;
   justify-content: center;
