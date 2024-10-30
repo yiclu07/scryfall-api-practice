@@ -36,12 +36,22 @@ const handleCardSearch = async (e) => {
       if (element["image_uris"]) {
         newImg.setAttribute("src", element["image_uris"]["normal"]);
       } else if (element["card_faces"]) {
-        newImg.setAttribute(
-          "src",
-          element["card_faces"][0]["image_uris"]["normal"]
-        );
+        const frontFaceImgSrc =
+          element["card_faces"][0]["image_uris"]["normal"];
+        const backFaceImgSrc = element["card_faces"][1]["image_uris"]["normal"];
+
+        // Add class to indicate the card is double-faced
+        newImg.classList.add("double-faced");
+
+        newImg.setAttribute("src", frontFaceImgSrc);
+
+        newImg.addEventListener("click", (e) => {
+          const newSrc =
+            newImg.src === frontFaceImgSrc ? backFaceImgSrc : frontFaceImgSrc;
+          newImg.setAttribute("src", newSrc);
+        });
       }
-      newImg.setAttribute("class", "result-image");
+      newImg.classList.add("result-image");
       cardContainer.appendChild(newImg);
     });
   }

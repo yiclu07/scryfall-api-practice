@@ -28,3 +28,7 @@ nav {
 .result-image {
   width: 200px;
 }
+
+.double-faced:hover {
+  cursor: url("./resources/flip.svg"), pointer;
+}
