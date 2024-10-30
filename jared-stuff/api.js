@@ -41,7 +41,7 @@ const doDom = async (list) => {
     resultPanel.replaceChildren();
 
     //forEach will loop through all elements of the list and execute the following code
-    list["data"].forEach((element) => {
+    list["data"].forEach((element, i) => {
 
     let imgSrc;
 
@@ -52,6 +52,11 @@ const doDom = async (list) => {
         imgSrc = element["image_uris"]["normal"];
     } else if (element["card_faces"]){
        imgSrc = element["card_faces"][0]["image_uris"]["normal"];
+       newImg.addEventListener('click', () => {
+            const newVar = newImg.src === element.card_faces[0]["image_uris"]["normal"] ? element.card_faces[1]["image_uris"]["normal"] : element.card_faces[0]["image_uris"]["normal"];
+            newImg.setAttribute('src', newVar);
+       });
+       newImg.classList.add('double-sided');
     } else {
         console.log("Idk what to tell ya man... shit's fucked");
         return;
@@ -59,12 +64,9 @@ const doDom = async (list) => {
 
     //assigns the proper img src to the previously created img element
     //then assigns the resultImg class and appends the img element to the result panel
+    newImg.setAttribute('alt', element['name']);
     newImg.setAttribute('src', imgSrc);
-    newImg.setAttribute('class', 'resultImg');
+    newImg.classList.add('resultImg');
     resultPanel.appendChild(newImg);   
 });
 }
-//notes for next session. Need to fix the else if section
-//to make it so that both sides of the card are displayed
-//Could make the setting of the src and class and appending the 
-//img in a new function and call that each time? 
